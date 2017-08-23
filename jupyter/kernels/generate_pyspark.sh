@@ -19,10 +19,9 @@ PY4J_ZIP=$(echo ${PY4J_ZIP} | cut -d ' ' -f 1)
 echo "Found PY4J_ZIP: '${PY4J_ZIP}'" >&2
 
 if (( "${SPARK_MAJOR_VERSION}" >= 2 )); then
-  PACKAGES_ARG=''
+  PACKAGES_ARG='--packages com.databricks:spark-csv_2.10:1.3.0,datastax:spark-cassandra-connector:2.0.0-M2-s_2.11,anguenot:pyspark-cassandra:0.5.0'
 else
-  PACKAGES_ARG='--packages com.databricks:spark-csv_2.10:1.3.0,datastax:spark-cassandra-connector:2.0.0-M2-s_2.11,TargetHolding:pyspark-cassandra:0.3.5
-'
+  PACKAGES_ARG='--packages com.databricks:spark-csv_2.10:1.3.0,datastax:spark-cassandra-connector:2.0.0-M2-s_2.11,anguenot:pyspark-cassandra:0.5.0'
 fi
 
 cat << EOF
